@@ -1,0 +1,28 @@
+$primaryfont: 'system-ui';
+
+body{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    background-color: #333;
+
+    .app{
+        color: white;
+        font-family: $primaryfont;
+    }
+}
+
+::-webkit-scrollbar{
+    width: 12px;
+    background-color: white;
+}
+
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #0a160f;
+    border-radius: 40px;
+    border: 3px solid white;
+}
