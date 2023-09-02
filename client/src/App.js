@@ -14,7 +14,7 @@ import Footer from './components/Footer/Footer';
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./pages/Profile/Profile";
 import Aboutus from "./pages/Aboutus/Aboutus";
-import Marketplace from "./pages/Marketplace/Marketplace";
+import Marketplace from "./pages/Marketplace/Market";
 
 // creating layout for pages
 
@@ -34,43 +34,43 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />
-      },
-      {
-        path: "/home",
-        element: <Home />
-      },
-      {
-        path: "/marketplace",
-        element: <Marketplace />
-      },
-      {
-        path: "/profile",
-        element: <Profile />
-      },
-      {
-        path: "/aboutus",
-        element: <Aboutus />
-      }
-      {
-        path: '/signup',
-        element: <Signup />
-      },
-      {
-        path: '/login',
-        element: <Login />
-      },
-      {
-        path: 'rooms',
-        element: <Home />
-      },
-      {
-        path: '/marketplace',
-        element: <Market />
-      }
+  },
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/home",
+    element: <Home />
+  },
+  {
+    path: "/marketplace",
+    element: <Marketplace />
+  },
+  {
+    path: "/profile",
+    element: <Profile />
+  },
+  {
+    path: "/aboutus",
+    element: <Aboutus />
+  },
+  {
+    path: '/signup',
+    element: <Signup />
+  },
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: 'rooms',
+    element: <Home />
+  },
+  {
+    path: '/marketplace',
+    element: <Market />
+  }
 ]);
 
 // using RouterProvider to provide routing feature
