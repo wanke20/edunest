@@ -1,0 +1,42 @@
+.items-container {
+  display: block;
+
+  .container {
+    flex: 1;
+    margin-top: 50;
+  }
+
+  .item {
+    flex: 1;
+    flex-direction: column;
+    margin: 8px;
+    padding: 0;
+    width: var(--background-width);
+    height: var(--background-width);
+
+    .title-text {
+      margin: 24px;
+      font-size: 64px;
+    }
+
+    .normal-text {
+      font-size: 16px;
+    }
+  }
+
+  .explore-resources {
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    margin-top: 25px;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+  }
+}

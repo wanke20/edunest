@@ -9,13 +9,12 @@ import './App.scss';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Home from './pages/Home/Home';
+import Market from './pages/Marketplace/Market';
 import Footer from './components/Footer/Footer';
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./pages/Profile/Profile";
 import Aboutus from "./pages/Aboutus/Aboutus";
-import Marketplace from "./pages/Marketplace/Marketplace";
-
-// creating layout for pages
+import Marketplace from "./pages/Marketplace/Market";
 
 const Layout = () => {
   return (
@@ -45,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/marketplace",
         element: <Marketplace />
+      },
+      {
+        path: "/market",
+        element: <Market />
       },
       {
         path: "/profile",
