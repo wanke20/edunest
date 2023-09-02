@@ -1,4 +1,5 @@
 import './components.scss';
+import logo from "../notebook.jpeg";
 import {
     SafeAreaView,
     FlatList,
@@ -25,7 +26,7 @@ const App = () => {
         return (
             <div className='items-container'>
                 <button className='item'>
-                    <img src="../casio-calc.jpg" alt="Logo" className="image" />
+                    <img src={image} width="100" height="50" className='image' />
                     <Text className='title'>{title}<br /></Text>
                     <Text className='normal-text'>{description}</Text>
                 </button>
@@ -34,6 +35,7 @@ const App = () => {
     };
 
     return (
+
         <SafeAreaView className="items-container">
             <FlatList
                 data={shoppingItems}
