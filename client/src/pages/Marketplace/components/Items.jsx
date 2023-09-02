@@ -1,9 +1,7 @@
 import './components.scss';
 import {
     SafeAreaView,
-    View,
     FlatList,
-    StyleSheet,
     Text,
     Dimensions,
 } from 'react-native';
@@ -20,16 +18,18 @@ let shoppingItems = [
 
 const screenWidth = Dimensions.get('window').width;
 const boxWidth = (screenWidth - 75) / 4;
+document.documentElement.style.setProperty("--background-width", `${boxWidth}px`);
 
 const App = () => {
-    let imageLink = "../casio-calc.jpg";
-
     const Item = ({ title, description, image }) => {
         return (
-            <button className='container'>
-                <Text className='title'>{title}<br /></Text>
-                <Text className='normal-text'>{description}</Text>
-            </button>
+            <div className='items-container'>
+                <button className='item'>
+                    <img src="../casio-calc.jpg" alt="Logo" className="image" />
+                    <Text className='title'>{title}<br /></Text>
+                    <Text className='normal-text'>{description}</Text>
+                </button>
+            </div>
         )
     };
 

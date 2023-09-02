@@ -9,8 +9,8 @@ export default function SearchBar() {
     }
 
     return (
-        <div>
-            <h1 className="search-bar">Explore Resources</h1>
+        <div className="items-container">
+            <h1 className="explore-resources">Explore Resources</h1>
             <div className="search-bar">
                 <input type="text" value={search} style={{
                     width: '30%',
