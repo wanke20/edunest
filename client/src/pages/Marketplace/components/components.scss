@@ -1,0 +1,30 @@
+.container {
+  flex: 1;
+  margin-top: 20;
+}
+
+.item {
+  background-image: url("");
+  background-size: "cover";
+  background-position: "center";
+  margin: 8;
+  width: 320;
+  height: 300;
+  justify-content: "center";
+  align-items: "center";
+}
+
+.title {
+  font-size: 32;
+}
+
+.normal-text {
+  font-size: 16;
+}
+
+.search-bar {
+    display: 'flex';
+    justify-content: 'center';
+    margin: 150;
+    color: 'black';
+}

@@ -16,8 +16,6 @@ import Profile from "./pages/Profile/Profile";
 import Aboutus from "./pages/Aboutus/Aboutus";
 import Marketplace from "./pages/Marketplace/Market";
 
-// creating layout for pages
-
 const Layout = () => {
   return (
     <>
@@ -34,44 +32,49 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-  },
-  {
-    path: "/",
-    element: <Home />
-  },
-  {
-    path: "/home",
-    element: <Home />
-  },
-  {
-    path: "/marketplace",
-    element: <Marketplace />
-  },
-  {
-    path: "/profile",
-    element: <Profile />
-  },
-  {
-    path: "/aboutus",
-    element: <Aboutus />
-  },
-  {
-    path: '/signup',
-    element: <Signup />
-  },
-  {
-    path: '/login',
-    element: <Login />
-  },
-  {
-    path: 'rooms',
-    element: <Home />
-  },
-  {
-    path: '/marketplace',
-    element: <Market />
-  }
-]);
+    children: [
+      {
+        path: "/",
+        element: <Layout />,
+      },
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/home",
+        element: <Home />
+      },
+      {
+        path: "/marketplace",
+        element: <Marketplace />
+      },
+      {
+        path: "/profile",
+        element: <Profile />
+      },
+      {
+        path: "/aboutus",
+        element: <Aboutus />
+      },
+      {
+        path: '/signup',
+        element: <Signup />
+      },
+      {
+        path: '/login',
+        element: <Login />
+      },
+      {
+        path: 'rooms',
+        element: <Home />
+      },
+      {
+        path: '/marketplace',
+        element: <Market />
+      },
+    ]
+  }]);
 
 // using RouterProvider to provide routing feature
 

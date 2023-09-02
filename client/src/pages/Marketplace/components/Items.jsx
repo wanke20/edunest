@@ -1,4 +1,4 @@
-import image from "../notebook.jpeg"
+import './components.scss';
 import {
     SafeAreaView,
     View,
@@ -25,42 +25,16 @@ const App = () => {
     let imageLink = "../casio-calc.jpg";
 
     const Item = ({ title, description, image }) => {
-        // imageLink = image;
-        // console.log(imageLink);
         return (
-            <button style={styles.item}>
-                <Text style={styles.title}>{title}<br /></Text>
-                <Text style={styles.normalText}>{description}</Text>
+            <button className='container'>
+                <Text className='title'>{title}<br /></Text>
+                <Text className='normal-text'>{description}</Text>
             </button>
         )
     };
 
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            marginTop: 20,
-        },
-        item: {
-            backgroundImage: `url(${image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            margin: 8,
-            width: boxWidth,
-            height: 300,
-            // backgroundColor: '#f9c2ff',
-            justifyContent: 'center',
-            alignItems: 'center',
-        },
-        title: {
-            fontSize: 32,
-        },
-        normalText: {
-            fontSize: 16,
-        }
-    });
-
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView className="items-container">
             <FlatList
                 data={shoppingItems}
                 renderItem={({ item }) => <Item title={item.name} description={item.description} image={item.image} />}
