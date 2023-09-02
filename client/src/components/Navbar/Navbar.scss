@@ -1,0 +1,61 @@
+.navbarContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: +200;
+    font-weight: 600;
+
+    .navbarLeft {
+        padding: 15px;
+
+        .navLinks {
+            display: flex;
+            gap: 40px;
+
+            .link {
+                text-decoration: none;
+                color: #ffffff;
+            }
+        }
+    }
+
+    .navbarCenter {
+        padding: 15px;
+
+        .appLogo {
+
+            .link {
+                text-decoration: none;
+                color: #ffffff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                span {
+                    font-size: 24px
+                }
+            }
+        }
+    }
+
+    .navbarRight {
+        padding: 15px;
+
+        .navLinks {
+            display: flex;
+            gap: 40px;
+
+            .link {
+                text-decoration: none;
+                color: #ffffff;
+            }
+        }
+    }
+}
