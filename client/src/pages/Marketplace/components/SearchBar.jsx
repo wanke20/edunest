@@ -9,7 +9,7 @@ export default function SearchBar() {
     }
 
     return (
-        <div className="items-container">
+        <div className="components">
             <h1 className="explore-resources">Explore Resources</h1>
             <div className="search-bar">
                 <input type="text" value={search} style={{
