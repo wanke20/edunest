@@ -8,6 +8,7 @@ import './App.scss';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Home from './pages/Home/Home';
+import Market from './pages/Marketplace/Market';
 
 // using createBrowserRouter() to set routing path
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: 'rooms',
     element: <Home />
+  },
+  {
+    path: '/marketplace',
+    element: <Market />
   }
 ])
 
