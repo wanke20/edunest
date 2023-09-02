@@ -1,5 +1,6 @@
 import {
   createBrowserRouter,
+  Outlet,
   RouterProvider,
 } from "react-router-dom";
 
@@ -8,13 +9,52 @@ import './App.scss';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Home from './pages/Home/Home';
+import Footer from './components/Footer/Footer';
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./pages/Profile/Profile";
+import Aboutus from "./pages/Aboutus/Aboutus";
+import Marketplace from "./pages/Marketplace/Marketplace";
+
+// creating layout for pages
+
+const Layout = () => {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
+  )
+}
 
 // using createBrowserRouter() to set routing path
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Home />
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/home",
+        element: <Home />
+      },
+      {
+        path: "/marketplace",
+        element: <Marketplace />
+      },
+      {
+        path: "/profile",
+        element: <Profile />
+      },
+      {
+        path: "/aboutus",
+        element: <Aboutus />
+      }
+    ]
   },
   {
     path: '/signup',
@@ -24,10 +64,6 @@ const router = createBrowserRouter([
     path: '/login',
     element: <Login />
   },
-  {
-    path: 'rooms',
-    element: <Home />
-  }
 ])
 
 // using RouterProvider to provide routing feature
