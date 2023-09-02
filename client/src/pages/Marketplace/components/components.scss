@@ -1,22 +1,27 @@
 .items-container {
-  margin: 20;
-  padding: 50;
+  display: block;
 
   .container {
     flex: 1;
-    margin-top: 20;
+    margin-top: 50;
   }
 
   .item {
-    // background-image: url('../casio-calc.jpg');
-    background-size: cover;
-    background-position: center;
-
+    flex: 1;
+    flex-direction: column;
     margin: 8px;
+    padding: 0;
     width: var(--background-width);
     height: var(--background-width);
-    justify-content: center;
-    align-items: center;
+
+    .title-text {
+      margin: 24px;
+      font-size: 64px;
+    }
+
+    .normal-text {
+      font-size: 16px;
+    }
   }
 
   .explore-resources {
@@ -28,23 +33,10 @@
     margin-top: 25px;
   }
 
-  .title {
-    font-size: 32;
-  }
-
-  .normal-text {
-    font-size: 16;
-  }
-
   .search-bar {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
-  }
-
-  .image {
-    width: 60px;
     height: 50px;
   }
 }
