@@ -22,7 +22,7 @@ const Aboutus = () => {
         <img src={classroom} alt=""></img>
       </div>
       <div className='inline-flex'>
-        <img src={shopping} height={350}></img>
+        <img src={shopping} height={350} alt=""></img>
         <div className='aboutus'>
           <h1 className='what-we-offer'>What We Offer</h1>
           <div className='what-we-offer'>

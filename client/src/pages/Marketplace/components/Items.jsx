@@ -1,4 +1,4 @@
-import { useNavigation, useLocation, redirect } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import {
     SafeAreaView,
     FlatList,
@@ -25,7 +25,7 @@ root?.style.setProperty("--image-height", `${boxWidth * 2 / 3}px`);
 
 const App = () => {
     const handleRedirect = (title) => {
-        const result = title.replace(/ /g, "_");
+        const result = title.replace(/ /g, "-");
         console.log(`/market/${result}`);
         return redirect(`/market/${result}`);
     }
