@@ -52,15 +52,15 @@ const router = createBrowserRouter([
         path: "/aboutus",
         element: <Aboutus />
       },
-      {
-        path: '/signup',
-        element: <Signup />
-      },
-      {
-        path: '/login',
-        element: <Login />
-      },
     ],
+  },
+  {
+    path: '/signup',
+    element: <Signup />
+  },
+  {
+    path: '/login',
+    element: <Login />
   }
 ]);
 
