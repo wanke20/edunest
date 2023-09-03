@@ -1,0 +1,22 @@
+.card-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card{
+    width: 40%;
+    margin: 40px 5px;
+    background: grey;
+    text-align: center;
+    font-size: x-large;
+    padding: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    &:hover{
+        background: #d5b3b3;
+    }
+}
