@@ -1,26 +1,35 @@
-.items-container {
+.components {
   display: block;
 
   .container {
     flex: 1;
-    margin-top: 50;
+    margin-top: 50px;
   }
 
   .item {
-    flex: 1;
+    display: flex;
     flex-direction: column;
     margin: 8px;
-    padding: 0;
+    padding: 0px;
     width: var(--background-width);
     height: var(--background-width);
 
-    .title-text {
-      margin: 24px;
-      font-size: 64px;
+    img {
+      display: flex;
+      width: var(--image-width);
+      height: var(--image-height);
+      margin-bottom: 20px;
     }
 
     .normal-text {
-      font-size: 16px;
+      display: flex;
+      position: absolute;
+      width: var(--image-width);
+      font-size: 18px;
+      font-weight: normal;
+      margin-top: 200px;
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -30,7 +39,7 @@
     align-items: center;
     justify-content: center;
     height: 75px;
-    margin-top: 25px;
+    margin-top: 50px;
   }
 
   .search-bar {
@@ -38,5 +47,12 @@
     align-items: center;
     justify-content: center;
     height: 50px;
+    margin-bottom: 25px;
+
+    input {
+      display: flex;
+      width: 30%;
+      margin: 4px;
+    }
   }
 }

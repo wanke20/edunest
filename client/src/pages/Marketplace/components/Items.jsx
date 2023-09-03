@@ -2,49 +2,48 @@ import './components.scss';
 import {
     SafeAreaView,
     FlatList,
-    Text,
     Dimensions,
 } from 'react-native';
 
 let shoppingItems = [
-    { name: "Pencil", description: "Ticonderoga No. 2 Pencil", image: "/static/media/notebook-pic.0c6cd8f7ac12bbf563af.jpeg" },
-    { name: "Pen", description: "Staples Ballpoint Pen", image: "/static/media/notebook-pic.0c6cd8f7ac12bbf563af.jpeg" },
-    { name: "Paper", description: "W.B. Mason A2 Paper", image: "/static/media/notebook.2d57e16420e17d301c31.jpeg" },
-    { name: "Pencil Case", description: "Staples Black Pencil Case", image: "/static/media/notebook.2d57e16420e17d301c31.jpeg" },
-    { name: "Notebook", description: "5 Star Notebook", image: "/static/media/notebook.2d57e16420e17d301c31.jpeg" },
-    { name: "Calculator", description: "Ti-84 Scientific Caclulator", image: "/static/media/notebook.2d57e16420e17d301c31.jpeg" },
-    { name: "Folder", description: "5 Star Folder", image: "/static/media/notebook.2d57e16420e17d301c31.jpeg" },
+    { name: "Ticonderoga No. 2 Pencil", tags: ['pencil'], image: require('../casio-calc.jpg') },
+    { name: "Staples Ballpoint Pen", tags: ['pen', 'staples'], image: require('../notebook.jpeg') },
+    { name: "W.B. Mason A2 Paper", tags: ['paper'], image: require('../notebook.jpeg') },
+    { name: "Staples Black Pencil Case", tags: ['case', 'pencil', 'staples'], image: require('../notebook.jpeg') },
+    { name: "5 Star Notebook", tags: ['notebook', '5 star'], image: require('../notebook.jpeg') },
+    { name: "Ti-84 Scientific Caclulator", tags: ['calculator', 'scientific'], image: require('../notebook.jpeg') },
+    { name: "5 Star Folder", tags: ['folder', '5 star'], image: require('../notebook-pic.jpeg') },
 ];
 
 const screenWidth = Dimensions.get('window').width;
 const boxWidth = (screenWidth - 75) / 4;
-document.documentElement.style.setProperty("--background-width", `${boxWidth}px`);
+const root = document.documentElement;
+root?.style.setProperty("--background-width", `${boxWidth}px`);
+root?.style.setProperty("--image-width", `${boxWidth - 4}px`);
+root?.style.setProperty("--image-height", `${boxWidth * 2 / 3}px`);
 
 const App = () => {
-    const Item = ({ title, description, image }) => {
+    const Item = ({ title, image }) => {
         return (
-            <div className='items-container'>
+            <div className='components'>
                 <button className='item'>
-                    <img src={image} width={boxWidth - 4} height={boxWidth * 0.67} alt="" />
-                    <Text className='title-text'><br />{title}<br /></Text>
-                    <Text className='normal-text'>{description}</Text>
+                    <img src={image} alt="" />
+                    <h1 className="normal-text"><br />{title}<br /></h1>
                 </button>
             </div>
         )
     };
 
     return (
-        <div>
-            <SafeAreaView className="items-container">
-                <FlatList
-                    data={shoppingItems}
-                    renderItem={({ item }) => <Item title={item.name} description={item.description} image={item.image} />}
-                    keyExtractor={item => item.id}
-                    numColumns={4}
+        <SafeAreaView className="components">
+            <FlatList
+                data={shoppingItems}
+                renderItem={({ item }) => <Item title={item.name} image={item.image} />}
+                keyExtractor={item => item.id}
+                numColumns={4}
 
-                />
-            </SafeAreaView>
-        </div>
+            />
+        </SafeAreaView>
     );
 };
 
