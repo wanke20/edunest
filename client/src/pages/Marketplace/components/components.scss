@@ -3,7 +3,7 @@
 
   .container {
     flex: 1;
-    margin-top: 50px;
+    // margin-top: 50px;
   }
 
   .item {
@@ -13,14 +13,21 @@
     width: var(--background-width);
     height: var(--background-width);
 
+    img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: var(--image-width);
+      height: var(--image-height);
+      margin-bottom: 20px;
+    }
+
     .normal-text {
       display: flex;
-      flex-direction: row;
-      padding-left: 100px;
       font-size: 18px;
       font-weight: 75;
       margin-bottom: 40px;
-      justify-content: center;
+      justify-content: end;
       align-items: center;
     }
   }
