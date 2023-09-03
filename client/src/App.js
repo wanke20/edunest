@@ -14,7 +14,6 @@ import Footer from './components/Footer/Footer';
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./pages/Profile/Profile";
 import Aboutus from "./pages/Aboutus/Aboutus";
-import Marketplace from "./pages/Marketplace/Market";
 
 const Layout = () => {
   return (
@@ -40,10 +39,6 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />
-      },
-      {
-        path: "/marketplace",
-        element: <Marketplace />
       },
       {
         path: "/market",
