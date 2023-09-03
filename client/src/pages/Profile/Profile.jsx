@@ -2,9 +2,14 @@ import React from 'react';
 import './Profile.scss';
 
 import profileImg from '../../assets/icons/punisher.png';
+import { Navigate } from 'react-router-dom';
 
 const Profile = () => {
-  return (
+  // retrieving current user data from localstorage
+
+  const isCurrentuser = JSON.parse(localStorage.getItem('currentUser'));
+
+  return isCurrentuser ? (
     <div className="profileContainer">
       <div className="profileTop">
         <div className="topLeft">
@@ -14,10 +19,10 @@ const Profile = () => {
         </div>
         <div className="topRight">
           <div className="fullName">
-            Avinash Dubey
+            {isCurrentuser.name}
           </div>
           <div className="username">
-            avinasdube
+            {isCurrentuser.username}
           </div>
         </div>
       </div>
@@ -28,12 +33,12 @@ const Profile = () => {
         </div>
         <div className="detailsBox">
           <div className="detail"><label>Bio</label>Namaskar, I'm Avinash Dubey ! I'm a MERN developer.</div>
-          <div className="detail"><label>Email</label>avinasdube@gmail.com</div>
+          <div className="detail"><label>Email</label>{isCurrentuser.email}</div>
           <div className="detail"><label>Phone Number</label>999999999</div>
         </div>
       </div>
     </div>
-  )
+  ) : <Navigate to='/home' />;
 }
 
 export default Profile
