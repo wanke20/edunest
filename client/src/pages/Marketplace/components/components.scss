@@ -3,10 +3,11 @@
 
   .container {
     flex: 1;
-    // margin-top: 50px;
+    margin-top: 50px;
   }
 
   .item {
+    display: flex;
     flex-direction: column;
     margin: 8px;
     padding: 0px;
@@ -15,8 +16,6 @@
 
     img {
       display: flex;
-      justify-content: center;
-      align-items: center;
       width: var(--image-width);
       height: var(--image-height);
       margin-bottom: 20px;
@@ -24,10 +23,12 @@
 
     .normal-text {
       display: flex;
+      position: absolute;
+      width: var(--image-width);
       font-size: 18px;
-      font-weight: 75;
-      margin-bottom: 40px;
-      justify-content: end;
+      font-weight: normal;
+      margin-top: 200px;
+      justify-content: center;
       align-items: center;
     }
   }
