@@ -1,6 +1,6 @@
 import SearchBar from './components/SearchBar'
 import Items from './components/Items';
-import './globals.scss';
+import './Market.scss';
 
 export default function Home() {
   return (
