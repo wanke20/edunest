@@ -14,9 +14,7 @@ import Footer from './components/Footer/Footer';
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./pages/Profile/Profile";
 import Aboutus from "./pages/Aboutus/Aboutus";
-import Marketplace from "./pages/Marketplace/Marketplace";
-
-// creating layout for pages
+import Marketplace from "./pages/Marketplace/Market";
 
 const Layout = () => {
   return (
@@ -48,6 +46,10 @@ const router = createBrowserRouter([
         element: <Marketplace />
       },
       {
+        path: "/market",
+        element: <Market />
+      },
+      {
         path: "/profile",
         element: <Profile />
       },
@@ -55,23 +57,17 @@ const router = createBrowserRouter([
         path: "/aboutus",
         element: <Aboutus />
       }
-      {
-        path: '/signup',
-        element: <Signup />
-      },
-      {
-        path: '/login',
-        element: <Login />
-      },
-      {
-        path: 'rooms',
-        element: <Home />
-      },
-      {
-        path: '/marketplace',
-        element: <Market />
-      }
-]);
+    ]
+  },
+  {
+    path: '/signup',
+    element: <Signup />
+  },
+  {
+    path: '/login',
+    element: <Login />
+  },
+])
 
 // using RouterProvider to provide routing feature
 

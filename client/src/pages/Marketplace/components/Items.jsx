@@ -1,69 +1,44 @@
-import image from "../notebook.jpeg"
+import './components.scss';
 import {
     SafeAreaView,
-    View,
     FlatList,
-    StyleSheet,
-    Text,
     Dimensions,
 } from 'react-native';
 
 let shoppingItems = [
-    { name: "Pencil", description: "Ticonderoga No. 2 Pencil", image: "" },
-    { name: "Pen", description: "Staples Ballpoint Pen", image: "" },
-    { name: "Paper", description: "W.B. Mason A2 Paper", image: "" },
-    { name: "Pencil Case", description: "Staples Black Pencil Case", image: "" },
-    { name: "Notebook", description: "5 Star Notebook", image: "" },
-    { name: "Calculator", description: "Ti-84 Scientific Caclulator", image: "../casio-calc.jpg" },
-    { name: "Folder", description: "5 Star Folder", image: "" },
+    { name: "Ticonderoga No. 2 Pencil", tags: ['pencil'], image: require('../casio-calc.jpg') },
+    { name: "Staples Ballpoint Pen", tags: ['pen', 'staples'], image: require('../notebook.jpeg') },
+    { name: "W.B. Mason A2 Paper", tags: ['paper'], image: require('../notebook.jpeg') },
+    { name: "Staples Black Pencil Case", tags: ['case', 'pencil', 'staples'], image: require('../notebook.jpeg') },
+    { name: "5 Star Notebook", tags: ['notebook', '5 star'], image: require('../notebook.jpeg') },
+    { name: "Ti-84 Scientific Caclulator", tags: ['calculator', 'scientific'], image: require('../notebook.jpeg') },
+    { name: "5 Star Folder", tags: ['folder', '5 star'], image: require('../notebook-pic.jpeg') },
 ];
 
 const screenWidth = Dimensions.get('window').width;
 const boxWidth = (screenWidth - 75) / 4;
+const root = document.documentElement;
+root?.style.setProperty("--background-width", `${boxWidth}px`);
+root?.style.setProperty("--image-width", `${boxWidth - 4}px`);
+root?.style.setProperty("--image-height", `${boxWidth * 2 / 3}px`);
 
 const App = () => {
-    let imageLink = "../casio-calc.jpg";
-
-    const Item = ({ title, description, image }) => {
-        // imageLink = image;
-        // console.log(imageLink);
+    const Item = ({ title, image }) => {
         return (
-            <button style={styles.item}>
-                <Text style={styles.title}>{title}<br /></Text>
-                <Text style={styles.normalText}>{description}</Text>
-            </button>
+            <div className='components'>
+                <button className='item'>
+                    <img src={image} alt="" />
+                    <h1 className="normal-text"><br />{title}<br /></h1>
+                </button>
+            </div>
         )
     };
 
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            marginTop: 20,
-        },
-        item: {
-            backgroundImage: `url(${image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            margin: 8,
-            width: boxWidth,
-            height: 300,
-            // backgroundColor: '#f9c2ff',
-            justifyContent: 'center',
-            alignItems: 'center',
-        },
-        title: {
-            fontSize: 32,
-        },
-        normalText: {
-            fontSize: 16,
-        }
-    });
-
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView className="components">
             <FlatList
                 data={shoppingItems}
-                renderItem={({ item }) => <Item title={item.name} description={item.description} image={item.image} />}
+                renderItem={({ item }) => <Item title={item.name} image={item.image} />}
                 keyExtractor={item => item.id}
                 numColumns={4}
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './components.scss';
 
 export default function SearchBar() {
     const [search, setSearch] = useState('');
@@ -8,20 +9,10 @@ export default function SearchBar() {
     }
 
     return (
-        <div>
-            <h1 style={{
-                display: 'flex',
-                justifyContent: 'center',
-                margin: '150px 0 50px 0',
-                color: 'black',
-            }}>Explore Resources</h1>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-            }}>
-                <input type="text" value={search} style={{
-                    width: '30%',
-                }} onChange={(e) => setSearch(e.target.value)} />
+        <div className="components">
+            <h1 className="explore-resources">Explore Resources</h1>
+            <div className="search-bar">
+                <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search for Keyword..." />
                 <button onClick={sendRequest}>Filter</button>
             </div>
         </div>

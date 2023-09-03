@@ -1,0 +1,58 @@
+.components {
+  display: block;
+
+  .container {
+    flex: 1;
+    margin-top: 50px;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+    padding: 0px;
+    width: var(--background-width);
+    height: var(--background-width);
+
+    img {
+      display: flex;
+      width: var(--image-width);
+      height: var(--image-height);
+      margin-bottom: 20px;
+    }
+
+    .normal-text {
+      display: flex;
+      position: absolute;
+      width: var(--image-width);
+      font-size: 18px;
+      font-weight: normal;
+      margin-top: 200px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .explore-resources {
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    margin-top: 50px;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin-bottom: 25px;
+
+    input {
+      display: flex;
+      width: 30%;
+      margin: 4px;
+    }
+  }
+}
