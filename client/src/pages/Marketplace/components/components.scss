@@ -13,6 +13,7 @@
     padding: 0px;
     width: var(--background-width);
     height: var(--background-width);
+    background-color: #93caed;
 
     img {
       display: flex;
@@ -27,6 +28,8 @@
       width: var(--image-width);
       font-size: 18px;
       font-weight: normal;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       margin-top: 200px;
       justify-content: center;
       align-items: center;
@@ -35,7 +38,7 @@
 
   .explore-resources {
     display: flex;
-    color: black;
+    color: #fff;
     align-items: center;
     justify-content: center;
     height: 75px;
@@ -47,7 +50,6 @@
     align-items: center;
     justify-content: center;
     height: 50px;
-    margin-bottom: 25px;
 
     input {
       display: flex;

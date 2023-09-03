@@ -1,0 +1,36 @@
+.aboutus {
+    color: #fff;
+    max-width: 50%;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    .what-we-offer {
+        margin-left: 10px;
+    }
+}
+
+.inline-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 40%;
+        margin: 15px;
+    }
+}
+
+.vision-statement {
+    max-width: 100%;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    .our-vision {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

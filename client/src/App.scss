@@ -1,12 +1,13 @@
 $primaryfont: 'system-ui';
 
-body{
+body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     background-color: #101010;
 
-    .app{
+    .app {
+        background-color: #101010;
         color: white;
         font-family: $primaryfont;
     }

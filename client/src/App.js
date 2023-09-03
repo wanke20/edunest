@@ -3,7 +3,6 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-
 import './App.scss';
 
 import Login from './pages/Login/Login';

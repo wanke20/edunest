@@ -1,9 +1,10 @@
-import './components.scss';
+import { useNavigation, useLocation, redirect } from 'react-router-dom';
 import {
     SafeAreaView,
     FlatList,
     Dimensions,
 } from 'react-native';
+import './components.scss';
 
 let shoppingItems = [
     { name: "Ticonderoga No. 2 Pencil", tags: ['pencil'], image: require('../pictures/casio-calc.jpg') },
@@ -23,16 +24,20 @@ root?.style.setProperty("--image-width", `${boxWidth - 4}px`);
 root?.style.setProperty("--image-height", `${boxWidth * 2 / 3}px`);
 
 const App = () => {
-    const Item = ({ title, image }) => {
-        return (
-            <div className='components'>
-                <button className='item'>
-                    <img src={image} alt="" />
-                    <h1 className="normal-text"><br />{title}<br /></h1>
-                </button>
-            </div>
-        )
-    };
+    const handleRedirect = (title) => {
+        const result = title.replace(/ /g, "_");
+        console.log(`/market/${result}`);
+        return redirect(`/market/${result}`);
+    }
+
+    const Item = ({ title, image }) => (
+        <div className='components'>
+            <button className='item' onClick={() => handleRedirect(title)}>
+                <img src={image} alt="" />
+                <h1 className="normal-text"><br />{title}<br /></h1>
+            </button>
+        </div>
+    );
 
     return (
         <SafeAreaView className="components">
