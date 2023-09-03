@@ -39,7 +39,7 @@
     align-items: center;
     justify-content: center;
     height: 75px;
-    margin-top: 25px;
+    margin-top: 50px;
   }
 
   .search-bar {
@@ -47,5 +47,11 @@
     align-items: center;
     justify-content: center;
     height: 50px;
+    margin-bottom: 25px;
+
+    input {
+      display: flex;
+      width: 30%;
+    }
   }
 }

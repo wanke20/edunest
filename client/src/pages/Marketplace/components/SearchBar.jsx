@@ -12,9 +12,7 @@ export default function SearchBar() {
         <div className="components">
             <h1 className="explore-resources">Explore Resources</h1>
             <div className="search-bar">
-                <input type="text" value={search} style={{
-                    width: '30%',
-                }} onChange={(e) => setSearch(e.target.value)} />
+                <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search for Keyword..." />
                 <button onClick={sendRequest}>Filter</button>
             </div>
         </div>
