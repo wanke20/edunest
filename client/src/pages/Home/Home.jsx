@@ -1,9 +1,13 @@
 import React from 'react'
 import './Home.scss'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const Home = () => {
-  return (
+  // retrieving current user data from localstorage
+
+  const isCurrentuser = JSON.parse(localStorage.getItem('currentUser'));
+
+  return isCurrentuser ? (
     <>
       <div className='card-container'>
         <Link to={'/market'} className='card'>
@@ -16,7 +20,7 @@ const Home = () => {
 
 
     </>
-  )
+  ) : <Navigate to='/login' />;
 }
 
 export default Home;
