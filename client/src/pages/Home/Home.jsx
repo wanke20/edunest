@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <div className='card-container'>
-        <Link to={'/marketplace'} className='card'>
+        <Link to={'/market'} className='card'>
           Marketplace
         </Link>
         <Link to={'/profile'} className='card'>
