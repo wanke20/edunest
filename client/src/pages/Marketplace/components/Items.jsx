@@ -6,13 +6,13 @@ import {
 } from 'react-native';
 
 let shoppingItems = [
-    { name: "Ticonderoga No. 2 Pencil", tags: ['pencil'], image: require('../casio-calc.jpg') },
-    { name: "Staples Ballpoint Pen", tags: ['pen', 'staples'], image: require('../notebook.jpeg') },
-    { name: "W.B. Mason A2 Paper", tags: ['paper'], image: require('../notebook.jpeg') },
-    { name: "Staples Black Pencil Case", tags: ['case', 'pencil', 'staples'], image: require('../notebook.jpeg') },
-    { name: "5 Star Notebook", tags: ['notebook', '5 star'], image: require('../notebook.jpeg') },
-    { name: "Ti-84 Scientific Caclulator", tags: ['calculator', 'scientific'], image: require('../notebook.jpeg') },
-    { name: "5 Star Folder", tags: ['folder', '5 star'], image: require('../notebook-pic.jpeg') },
+    { name: "Ticonderoga No. 2 Pencil", tags: ['pencil'], image: require('../pictures/casio-calc.jpg') },
+    { name: "Staples Ballpoint Pen", tags: ['pen', 'staples'], image: require('../pictures/notebook.jpeg') },
+    { name: "W.B. Mason A2 Paper", tags: ['paper'], image: require('../pictures/notebook.jpeg') },
+    { name: "Staples Black Pencil Case", tags: ['case', 'pencil', 'staples'], image: require('../pictures/notebook.jpeg') },
+    { name: "5 Star Notebook", tags: ['notebook', '5 star'], image: require('../pictures/notebook.jpeg') },
+    { name: "Ti-84 Scientific Caclulator", tags: ['calculator', 'scientific'], image: require('../pictures/notebook.jpeg') },
+    { name: "5 Star Folder", tags: ['folder', '5 star'], image: require('../pictures/notebook-pic.jpeg') },
 ];
 
 const screenWidth = Dimensions.get('window').width;
