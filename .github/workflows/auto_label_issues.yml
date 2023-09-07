@@ -1,39 +1,15 @@
-name: Auto Label Issues
-on:
-  issues:
-    types:
-      - opened
-
-jobs:
-  label-issues:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check for keywords
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      
-      - name: Run Script
-        run: |
-          const keywords = ["bug", "feature", "enhancement"];
-          const issueTitle = context.payload.issue.title.toLowerCase();
-          const issueBody = context.payload.issue.body.toLowerCase();
-
-          let labelsToAdd = [];
-
-          if (keywords.some(keyword => issueTitle.includes(keyword) || issueBody.includes(keyword))) {
-            labelsToAdd.push("auto-labeled");
-          }
-
-          if (labelsToAdd.length > 0) {
-            console.log(`Adding labels: ${labelsToAdd.join(", ")}`);
-            await github.issues.addLabels({
-              issue_number: context.payload.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: labelsToAdd
-            });
-          }
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+- name: Auto label
+  # You may pin to the exact commit or the version.
+  # uses: Renato66/auto-label@48d912479c10a7e0057c1bc5b9f59ecfd45c01fe
+  uses: Renato66/auto-label@v2.3.0
+  with:
+    # github token for the repository
+    repo-token: 
+    # 
+    ignore-comments: # optional, default is true
+    # 
+    labels-synonyms: # optional, default is 
+    # 
+    labels-not-allowed: # optional, default is 
+    # 
+    default-labels: # optional, default is 
