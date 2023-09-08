@@ -12,13 +12,18 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v3
 
-      - name: Auto Label Issues
-        uses: softprops/action-gh-release@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          files: |
-            scripts/auto-label.js
-
+          node-version: 18 # You can specify the Node.js version you need
+      
+      - name: Auto Label Issues
+        run: |
+            npm install
+            node scripts/auto-label.js
+        
         env:
+
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
           GITHUB_REPOSITORY: ${{ github.repository }}
