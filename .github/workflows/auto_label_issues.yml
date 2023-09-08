@@ -19,8 +19,8 @@ jobs:
       
       - name: Auto Label Issues
         run: |
-            npm install
-            node scripts/auto-label.js
+            cd edunest/scripts
+            node auto-label.js
         
         env:
 
