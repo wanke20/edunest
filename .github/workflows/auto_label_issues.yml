@@ -17,9 +17,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies and Auto Label Issues
+      - name: Auto Label Issues
         run: |
-          npm install
           node - <<EOF
           const { Octokit } = require('octokit');
 
