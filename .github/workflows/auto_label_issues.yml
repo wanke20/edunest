@@ -12,44 +12,12 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
       - name: Auto Label Issues
-        run: |
-          #!/bin/sh
-          set -e
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            scripts/auto-label.js
 
-          GITHUB_TOKEN="$1"
-          REPO_OWNER="$2"
-          REPO_NAME="$3"
-          GITHUB_ISSUE_NUMBER="$4"
-
-          issue_title=$(jq -r .issue.title "$GITHUB_EVENT_PATH")
-
-          if echo "$issue_title" | grep -qi 'bug'; then
-            label="bug"
-          elif echo "$issue_title" | grep -qi 'feature'; then
-            label="feature"
-          elif echo "$issue_title" | grep -qi 'enhancement'; then
-            label="enhancement"
-          else
-            label=""
-          fi
-
-          if [ -n "$label" ]; then
-            echo "Adding label: $label"
-            curl -X POST "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/$GITHUB_ISSUE_NUMBER/labels" \
-              -H "Authorization: token $GITHUB_TOKEN" \
-              -H "Content-Type: application/json" \
-              -d "{
-                \"labels\": [\"$label\"]
-              }"
-          else
-            echo "No label to add."
-          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
