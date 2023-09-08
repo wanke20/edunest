@@ -5,58 +5,35 @@ on:
       - opened
 
 jobs:
-  auto-label-issues:
+  label-issues:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js 18
+      - name: Check for keywords
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-
-      - name: Install Dependencies and Auto Label Issues
+          node-version: '16'
+      
+      - name: Run Script
         run: |
-          npm install
-          node - <<EOF
-          const { Octokit } = require('octokit');
+          const keywords = ["bug", "feature", "enhancement"];
+          const issueTitle = context.payload.issue.title.toLowerCase();
+          const issueBody = context.payload.issue.body.toLowerCase();
 
-          const octokit = new Octokit({
-            auth: process.env.GITHUB_TOKEN,
-          });
+          let labelsToAdd = [];
 
-          async function labelIssues() {
-            const issues = await octokit.rest.issues.listForRepo({
-              owner: '$GITHUB_REPOSITORY_OWNER',
-              repo: '$GITHUB_REPOSITORY',
-              state: 'open',
-            });
-
-            for (const issue of issues.data) {
-              // Labeling logic based on keywords
-              const keywords = ['bug', 'feature', 'enhancement'];
-
-              for (const keyword of keywords) {
-                if (issue.title.toLowerCase().includes(keyword)) {
-                  await octokit.rest.issues.addLabels({
-                    owner: '$GITHUB_REPOSITORY_OWNER',
-                    repo: '$GITHUB_REPOSITORY',
-                    issue_number: issue.number,
-                    labels: [keyword],
-                  });
-                }
-              }
-            }
+          if (keywords.some(keyword => issueTitle.includes(keyword) || issueBody.includes(keyword))) {
+            labelsToAdd.push("auto-labeled");
           }
 
-          labelIssues().catch((error) => {
-            console.error(error);
-            process.exit(1);
-          });
-          EOF
+          if (labelsToAdd.length > 0) {
+            console.log(`Adding labels: ${labelsToAdd.join(", ")}`);
+            await github.issues.addLabels({
+              issue_number: context.payload.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: labelsToAdd
+            });
+          }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
