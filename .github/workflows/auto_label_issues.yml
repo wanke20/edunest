@@ -13,9 +13,26 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ["triage","bug","feature"]
-            })
+            const labelsToAdd = [];
+            const title = context.payload.issue.title.toLowerCase(); 
+            
+            const keywordLabels = {
+              "triage": "triage",
+              "bug": "bug",
+              "feature": "feature"
+            };
+            
+            for (const keyword in keywordLabels) {
+              if (title.includes(keyword)) {
+                labelsToAdd.push(keywordLabels[keyword]);
+              }
+            }
+            
+            if (labelsToAdd.length > 0) {
+              github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: labelsToAdd
+              });
+            }
