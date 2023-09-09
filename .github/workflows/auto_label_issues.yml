@@ -1,28 +1,21 @@
-name: Auto Label Issues
+name: Label issues
 on:
   issues:
     types:
+      - reopened
       - opened
-
 jobs:
-  auto-label-issues:
+  label_issues:
     runs-on: ubuntu-latest
-
+    permissions:
+      issues: write
     steps:
-      - name: Check out the code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/github-script@v6
         with:
-          node-version: 18 # You can specify the Node.js version you need
-      
-      - name: Auto Label Issues
-        run: |
-            node scripts/auto-label.js
-        
-        env:
-
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["triage","bug","feature"]
+            })
